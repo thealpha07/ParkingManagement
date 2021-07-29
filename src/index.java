@@ -19,16 +19,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 
 
-/**
- *
- * @author Abhi
- */
-
-
 public class index extends javax.swing.JFrame {
-    
-    
-    
+      
     // Initializes an 4-order B+ tree
     int orderM =4;
     bplustree bpt = new bplustree(orderM);
@@ -59,14 +51,9 @@ public class index extends javax.swing.JFrame {
               
                if(!(line.equals(""))){
                 try{bpt.insert(Integer.parseInt(data[7]),line);
-                //System.out.println("update BPT");
                 }
                 catch(NumberFormatException e){
                  System.out.println("Insertion to bpt done");
-               // String res=bpt.search(Integer.parseInt(data[7]));
-                //System.out.println(res);
-                //bpt.delete(Integer.parseInt(data[7]));
-                //bpt.insert(Integer.parseInt(data[7]),line);
                 }
                 
                 }
@@ -102,7 +89,6 @@ public class index extends javax.swing.JFrame {
                String line = tableline.toString().trim();
                String[] data=line.split(" ");
                model.addRow(data);
-               //("table updated");
                jTable1.setAutoCreateRowSorter(true);
               
            }
@@ -502,18 +488,6 @@ public class index extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rctxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rctxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rctxtActionPerformed
-
-    private void gendertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gendertxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gendertxtActionPerformed
-
-    private void gendertxtItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_gendertxtItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gendertxtItemStateChanged
-   
     //Sets value to the slot Show. We can draw lap wise blocks to make it visual
     public void slotinfo(int p,int q){
         File file2=new File("slots.txt");
@@ -530,7 +504,6 @@ public class index extends javax.swing.JFrame {
                 }else {
                     q = q+1;
                 }
-               //System.out.println("Slot info shown");
             }
             br.close();
             
@@ -638,7 +611,7 @@ public class index extends javax.swing.JFrame {
     }
     
     //Adds the Information entered into the Jtable
-    private void parkButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parkButActionPerformed
+    private void parkButActionPerformed(java.awt.event.ActionEvent evt) {
 
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
         String name=nametxt.getText();
@@ -662,13 +635,11 @@ public class index extends javax.swing.JFrame {
             BufferedReader br=new BufferedReader(fr);
             while((curline=br.readLine())!=null){
                 data=curline.split(" ");
-               // System.out.println(data[1]+" "+track);
                 if(track.equals(data[0])&&data[1].equals("Available")){      
                     System.out.println("Added to file ");
                     String b=rc+" "+name+" "+brand+" "+contact+" "+gender+" "+issue+" "+expiry+" "+track+" ";
                     pw.println(b);
                     pw.flush();
-                    //pw.close();
                     JOptionPane.showMessageDialog(this, "Parked");
                     nametxt.setText("");
                     rctxt.setText("");
@@ -743,7 +714,6 @@ public class index extends javax.swing.JFrame {
                 temp.renameTo(dump);
             model.removeRow(selected_index);
             unfill(track);
-            //update(track);
             }
         }
         catch(HeadlessException | IOException | NumberFormatException e){
@@ -959,12 +929,7 @@ public class index extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_reportExportActionPerformed
-
-    private void availabletxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availabletxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_availabletxtActionPerformed
-
-       
+	
     /**
      * @param args the command line arguments
      */
@@ -1067,7 +1032,6 @@ class bplustree {
 				return a.compareTo(b);
 			}
 		};
-                //System.out.println(Arrays.binarySearch(dps, 0, numPairs, new DictionaryPair(t, ""), c)+"kill");
 		return Arrays.binarySearch(dps, 0, numPairs, new DictionaryPair(t, ""), c);
 	}
 
